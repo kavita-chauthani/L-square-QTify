@@ -1,0 +1,38 @@
+.card {
+    background-color: var(--color-black);
+    height: 205px;
+    width: 159px;
+    padding-left: 50px;
+  }
+  .cardBody {
+    background-color: var(--color-white);
+    height: 205px;
+    width: 159px;
+    border-radius: 10px;
+  }
+  .button {
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+  
+  .text {
+    background-color: var(--color-black);
+    height: 20px;
+    width: 71px;
+    font-size: 8px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 4px 8px;
+    margin-top: 4px;
+    text-align: center;
+  }
+  .title {
+    font-family: poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    width: 105px;
+    height: 21px;
+    margin-top: 7px;
+    padding-left: 2px;
+  }

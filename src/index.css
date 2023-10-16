@@ -25,3 +25,9 @@ body {
   color: var(--color-white);
   overflow-x: hidden;
 }
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
