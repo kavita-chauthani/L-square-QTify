@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { Chip, Grid, Tooltip } from "@mui/material";
+import { Chip, Tooltip } from "@mui/material";
 
 const Card = ({ data, type }) => {
   const getCard = (type) => {
