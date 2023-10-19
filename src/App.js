@@ -21,11 +21,6 @@ function App() {
     <div>
       <Navbar />
       <Hero />
-      {/*{
-      {topAlbumsData.map((item) => {
-        return <Card data={item} type="album" key={item.title}/>
-      })}
-    } */}
       <div>
         <Section data={topAlbumsData} type="album" title="Top Albums" />
       </div>
