@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from "./api/api";
 import Section from "./components/Section/Section";
 import styles from "./App.module.css";
+import Accordions from "./components/Faq/Faq";
 
 function App() {
   const [data, setData] = useState([]);
@@ -107,6 +108,7 @@ function App() {
           handleChange={handleChange}
         />
       </div>
+      <Accordions />
     </div>
   );
 }
