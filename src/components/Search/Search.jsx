@@ -12,5 +12,4 @@ const Search = ({ placeholder }) => {
     </form>
   );
 };
-
 export default Search;

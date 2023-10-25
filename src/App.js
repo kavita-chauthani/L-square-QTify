@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import { fetchTopAlbums, fetchSongs } from "./api/api";
+import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from "./api/api";
 import Section from "./components/Section/Section";
 import styles from "./App.module.css";
 
 function App() {
   const [data, setData] = useState([]);
+  const [newdata, setNewData] = useState([]);
   const [songsData, setSongsData] = useState([]);
-  const [filteredDataValues, setFilteredDataValue] = useState([]);
-  const [toggle, setToggle] = useState(true);
+  const [filteredDataValues, setFilteredDataValues] = useState([]);
+  const [toggle, setToggle] = useState(false);
   const [value, setValue] = useState(0);
 
-  const handleToggle = () => {
+  const handleToggle = (event, newValue) => {
     setToggle(!toggle);
   };
 
@@ -48,23 +49,34 @@ function App() {
     }
   };
 
-  const generateAllSongsData = async () => {
+  const generateNewData = async () => {
+    try {
+      const res = await fetchNewAlbums();
+      setNewData(res);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const generateAllSongData = async () => {
     try {
       const res = await fetchSongs();
       setSongsData(res);
-      setFilteredDataValue(res);
+      setFilteredDataValues(res);
     } catch (err) {
       console.log(err);
     }
   };
 
   const filteredData = (val) => {
-    setFilteredDataValue(val);
+    console.log(val);
+    setFilteredDataValues(val);
   };
 
   useEffect(() => {
     generateData();
-    generateAllSongsData();
+    generateNewData();
+    generateAllSongData();
   }, []);
 
   return (
@@ -79,10 +91,10 @@ function App() {
           filteredDataValues={data}
         />
         <Section
-          data={data}
-          type="album"
+          data={newdata}
+          type="albumn"
           title="New Albums"
-          filteredDataValues={data}
+          filteredDataValues={newdata}
         />
         <Section
           data={songsData}
